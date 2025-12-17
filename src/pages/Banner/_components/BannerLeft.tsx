@@ -58,7 +58,7 @@ export default function BannerLeft() {
           Trusted by Over 1,000 Companies
         </p>
 
-        <div className="flex flex-wrap justify-center md:justify-start gap-4 opacity-70">
+        <div className="flex flex-wrap justify-center md:justify-start gap-2 md:gap-4 opacity-70">
           {[logo1, logo2, logo3, logo4].map((logo, i) => (
             <img
               key={i}

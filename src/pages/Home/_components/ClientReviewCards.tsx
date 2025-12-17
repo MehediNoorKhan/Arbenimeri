@@ -8,7 +8,7 @@ export default function ClientReviewCards() {
       {reviewsDatas.map((item, index) => (
         <div
           key={index}
-          className="bg-[#F3F3F3] shadow-md rounded-2xl p-4 sm:p-6 flex flex-col items-center text-center"
+          className="bg-[#F3F3F3] shadow-md rounded-2xl p-2 sm:p-6 flex flex-col items-center text-center"
         >
           {/* Profile Image */}
           <img

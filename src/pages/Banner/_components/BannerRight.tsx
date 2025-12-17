@@ -17,7 +17,7 @@ export default function BannerRight() {
       </div>
 
       {/* Labels */}
-      <div className="absolute top-5 right-5 flex flex-col gap-4">
+      <div className="absolute top-8 md:top-15 right-1 md:rright-5 flex flex-col gap-4">
         {/* Top labels */}
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-2 bg-white px-3 py-2 rounded-full shadow-md outline outline-1 outline-primary">
