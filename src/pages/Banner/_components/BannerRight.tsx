@@ -1,104 +1,5 @@
 
 
-
-// import bannering from "../../../../public/images/All/bannerimg.png";
-// import verify from "../../../../public/images/All/verified.png";
-// import shareit from "../../../../public/images/All/shareit.png";
-// import widereach from "../../../../public/images/All/widereach.png";
-// import insight from "../../../../public/images/All/insight.png";
-// import avatar1 from "../../../../public/images/All/avatar1.png";
-// import avatar2 from "../../../../public/images/All/avatar2.png";
-// import avatar3 from "../../../../public/images/All/avatar3.png";
-
-
-// export default function BannerRight() {
-//   return (
-//     <div className="relative w-full flex justify-center md:justify-end">
-//       {/* STAGE */}
-//       <div className="relative w-[320px] h-[320px] sm:w-[420px] sm:h-[420px] lg:w-[520px] lg:h-[520px]">
-        
-//         {/* CIRCLE IMAGE (base layer) */}
-//         <div className="w-full h-full rounded-full overflow-hidden shadow-xl z-10">
-//           <img
-//             src={bannering}
-//             alt="Banner"
-//             className="w-full h-full object-cover"
-//           />
-//         </div>
-
-//         {/* FLOATING LABELS */}
-//         <div className="absolute inset-0 z-20 pointer-events-none">
-//           {/* Top Right */}
-//           <div className="absolute 2xl:top-2 2xl:right-[50px] flex flex-col gap-3">
-//             <Label icon={verify} text="Verified Partners" />
-//             <Label icon={shareit} text="Smart Matching" offset />
-//           </div>
-
-//           {/* Bottom Right */}
-//           <div className="absolute bottom-2 right-[50px] flex flex-col gap-3">
-//             <Label icon={widereach} text="Wide Reach" offset />
-//             <Label icon={insight} text="Clear Insights" />
-//           </div>
-//         </div>
-
-//         {/* BOTTOM LEFT CARD */}
-//         <div className="absolute z-30 bottom-[-40px] left-[-40px] bg-[#f2f2f2] rounded-2xl shadow-2xl p-4 w-[220px] sm:w-[260px] rotate-[-6deg]">
-//           <h4 className="font-semibold text-base mb-2">Happy Clients</h4>
-
-//           <div className="flex items-center gap-2 mb-2">
-//             <div className="flex -space-x-2">
-//               <img
-//                 src={avatar1}
-//                 className="w-8 h-8 rounded-full border-2 border-white"
-//               />
-//               <img
-//                 src={avatar2}
-//                 className="w-8 h-8 rounded-full border-2 border-white"
-//               />
-//               <img
-//                 src={avatar3}
-//                 className="w-8 h-8 rounded-full border-2 border-white"
-//               />
-//               {/* <img
-//                 src={avatar4}
-//                 className="w-8 h-8 rounded-full border-2 border-white"
-//               /> */}
-//             </div>
-//             <span className="text-[14px] font-semibold text-primary">+1K</span>
-//           </div>
-
-//           <p className="text-[14px] text-muted-foreground leading-relaxed">
-//             We provide seamless solutions that simplify daily tasks and wellbeing.
-//           </p>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// /* ---------------- LABEL COMPONENT ---------------- */
-
-// function Label({
-//   icon,
-//   text,
-//   offset = false,
-// }: {
-//   icon: string;
-//   text: string;
-//   offset?: boolean;
-// }) {
-//   return (
-//     <div
-//       className={`flex items-center gap-2 bg-white px-3 py-2 rounded-full shadow-md outline outline-1 outline-primary ${
-//         offset ? "ml-6" : ""
-//       }`}
-//     >
-//       <img src={icon} alt={text} className="w-5 h-5" />
-//       <span className="text-sm font-medium text-foreground">{text}</span>
-//     </div>
-//   );
-// }
-
 import bannering from "../../../../public/images/All/bannerimg.png";
 import verify from "../../../../public/images/All/verified.png";
 import shareit from "../../../../public/images/All/shareit.png";
@@ -149,7 +50,7 @@ export default function BannerRight() {
           </div>
 
           {/* Bottom Left Card */}
-          <div className="absolute z-30 -bottom-10 -left-10 md:bottom-8 md:left-12 lg:-bottom-12 lg:-left-12">
+          <div className="absolute z-30 -bottom-10 -left-10 md:bottom-8 md:left-12 lg:-bottom-12 lg:-left-12 2xl:bottom-16 2xl:-left-12">
             <ClientCard />
           </div>
         </div>
