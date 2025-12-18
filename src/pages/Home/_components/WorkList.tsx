@@ -4,7 +4,7 @@ import { workList } from '@/types/HowWorksCard';
 
 const WorkList: React.FC = () => {
   return (
-    <div className="py-8 sm:py-10 md:py-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-5 justify-center items-center ">
+    <div className="lg:px-[80px] py-8 sm:py-10 md:py-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-5 content-center ">
       {workList.map((item, index) => (
         <WorkCard key={index} item={item} />
       ))}

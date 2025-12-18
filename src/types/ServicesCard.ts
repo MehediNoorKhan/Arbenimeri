@@ -17,34 +17,34 @@ export const workList: CardItem[] = [
     id: 1,
     imageSrc: '/images/home/frame-1.svg',
     title: 'Moving & Cleaning',
-    description: 'Expert garden care,',
+    description: 'Complete moving support with seamless post-move cleaning included.',
   },
   {
     id: 2,
     imageSrc: '/images/home/frame-2.svg',
-    title: 'Card Two',
+    title: 'Moving',
     description:
-      'Skilled painters for refresh, renovation, and post-move wall touch-ups.',
+      'Fast, reliable transport service for homes, offices, and relocations.',
   },
   {
     id: 3,
     imageSrc: './images/home/frame-3.svg',
-    title: 'Card Three',
+    title: 'Cleaning',
     description:
       'Professional cleaning assistance for move-in, move-out, and deep cleaning needs.',
   },
   {
     id: 4,
     imageSrc: './images/home/frame-4.svg',
-    title: 'Card Three',
+    title: 'Painting',
     description:
-      'Complete moving support with seamless post-move cleaning included.',
+      'Skilled painters for refresh, renovation, and post-move wall touch-ups.',
   },
   {
     id: 5,
-    imageSrc: './images/home/frame-4.svg',
-    title: 'Card Three',
+    imageSrc: './images/home/frame-5.svg',
+    title: 'Gardening',
     description:
-      'Complete moving support with seamless post-move cleaning included.',
+      'Expert garden care, maintenance, and outdoor cleanup services.',
   },
 ];

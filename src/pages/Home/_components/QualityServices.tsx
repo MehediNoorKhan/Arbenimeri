@@ -35,6 +35,9 @@ export default function QualityServices() {
         <h1 className="py-4 sm:py-5 md:py-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black flex justify-center gap-2 sm:gap-3 flex-wrap">
           High Quality <span className="text-primary">Services for You.</span>
         </h1>
+
+        <p className='text-secondary xl:text-[22px]'>We are committed to sustainability. eco-friendly initiatives.</p>
+
       </div>
 
       {/* Services Card */}

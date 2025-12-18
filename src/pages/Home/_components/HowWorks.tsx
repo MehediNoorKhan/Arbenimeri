@@ -2,7 +2,7 @@ import WorkList from "./WorkList";
 
 export default function HowWorks() {
   return (
-    <section className="mt-12 sm:mt-16 md:mt-20 px-4 sm:px-6 md:px-12 lg:px-20">
+    <section className="mt-12 sm:mt-16 md:mt-20 px-4 md:px-12 lg:px-20">
       {/* Heading */}
       <div className="text-center max-w-3xl mx-auto">
         <h1 className="text-3xl sm:text-4xl font-bold">
@@ -26,7 +26,7 @@ export default function HowWorks() {
             Your advantages with
           </h3>
           <h3 className="text-3xl sm:text-4xl lg:text-[48px] font-bold text-primary leading-tight">
-            Moversco
+            MoversCO
           </h3>
         </div>
 

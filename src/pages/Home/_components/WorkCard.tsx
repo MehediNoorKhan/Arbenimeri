@@ -1,3 +1,4 @@
+
 import type { WorkCardItem } from '@/types/HowWorksCard';
 import React from 'react';
 
@@ -7,21 +8,36 @@ interface CardProps {
 
 const WorkCard: React.FC<CardProps> = ({ item }) => {
   return (
-    <div className="bg-primary p-4 sm:p-5 md:p-6 rounded-3xl flex flex-col text-center items-center">
-      <div className="bg-white/20 backdrop-blur-3xl w-14 h-14 rounded-xl flex justify-center items-center ">
+    <div
+      className="
+        bg-primary
+        rounded-3xl
+        w-full
+        max-w-[400px]
+        aspect-[3/4]
+        p-5 sm:p-6
+        flex flex-col items-center text-center
+      "
+    >
+      {/* ICON */}
+      <div className="bg-white/20 backdrop-blur-3xl w-14 h-14 rounded-xl flex items-center justify-center shrink-0">
         <img
           src={item.image}
           alt={item.title}
-          className=" h-11 w-11 p-2 object-cover"
+          className="w-10 h-10 object-contain"
         />
       </div>
-      {/* Glass overlay */}
-      {/* <div className="absolute inset-0 bg-white/50 backdrop-blur-md flex flex-col justify-center items-center text-center p-4"> */}
-      <h2 className="text-xl font-bold text-white mb-2 md:mb-3 mt-5 md:mt-8">
-        {item.title}
-      </h2>
-      <p className="text-white">{item.description}</p>
-      {/* </div> */}
+
+      {/* CONTENT */}
+      <div className="flex flex-col flex-1 justify-center md:mt-5">
+        <h2 className="text-lg sm:text-xl font-bold text-white mb-3 line-clamp-2">
+          {item.title}
+        </h2>
+
+        <p className="text-white text-sm sm:text-base leading-relaxed line-clamp-4">
+          {item.description}
+        </p>
+      </div>
     </div>
   );
 };

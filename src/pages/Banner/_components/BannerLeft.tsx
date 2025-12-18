@@ -20,7 +20,7 @@ export default function BannerLeft() {
       </div>
 
       {/* Heading */}
-      <h1 className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-tight font-semibold text-foreground">
+      <h1 className="2xl:text-[64px] leading-tight font-semibold text-foreground">
         Effortless Care at <br className="hidden sm:block" /> Your Fingertips
       </h1>
 
@@ -36,25 +36,25 @@ export default function BannerLeft() {
             />
           ))}
         </div>
-        <p className="text-sm text-secondary">
+        <p className="text-[16px] text-secondary">
           And <span className="font-medium text-foreground">1,283+</span> others already tried
         </p>
       </div>
 
       {/* Description */}
-      <p className="text-secondary max-w-md mx-auto md:mx-0">
+      <p className="text-secondary 2xl:text-[18px]">
         From life’s uncertainties to everyday needs, we’re here to provide unmatched
         support and tailored coverage.
       </p>
 
       {/* CTA */}
-      <button className="mx-auto md:mx-0 w-fit px-6 py-3 bg-primary text-white rounded-full font-medium transition hover:scale-105">
+      <button className="mx-auto md:mx-0 w-fit p-[16px] bg-primary text-white rounded-full font-medium transition hover:scale-105">
         Explore Services
       </button>
 
       {/* Trusted by */}
-      <div className="pt-6">
-        <p className="text-sm text-muted-foreground mb-3 text-center md:text-left">
+      <div className="2xl:mt-[80px]">
+        <p className="2xl:text-[18px] text-muted-foreground mb-[16px] text-center md:text-left">
           Trusted by Over 1,000 Companies
         </p>
 
@@ -64,7 +64,7 @@ export default function BannerLeft() {
               key={i}
               src={logo}
               alt=""
-              className="h-28 w-28"
+              className="h-[28px] w-[116px]"
             />
           ))}
         </div>

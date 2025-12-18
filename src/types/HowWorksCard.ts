@@ -7,20 +7,20 @@ export interface WorkCardItem {
 export const workList: WorkCardItem[] = [
   {
     image: '/images/home/work-3.svg',
-    title: 'Project Insights',
+    title: '1. Fill out the form',
     description:
       'By recording the key data of your project once, you can reach hundreds of providers anonymously and in a time-saving manner.',
   },
   {
     image: '/images/home/work-2.svg',
-    title: 'Fast Connections',
+    title: '2. Compare offers',
     description:
-      'Quickly connect with multiple vendors without sharing sensitive project details publicly.',
+      'You will immediately receive up to a maximum of 3 offers from suitable providers in the area.',
   },
   {
     image: '/images/home/work-1.svg',
-    title: 'Secure Data',
+    title: '3. Save time and money',
     description:
-      'Keep your project data safe while still getting maximum exposure to potential providers.',
+      'Find the best offer quickly with minimal effort, leaving time for more important things.',
   },
 ];
