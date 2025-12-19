@@ -7,6 +7,7 @@ import FAQ from './pages/FAQ';
 import Blogs from './pages/Blogs';
 import RootLayout from './layout';
 import Login from './pages/Auth/_components/Login';
+import Signup from './pages/Auth/_components/Signup';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path:'login',
         element:<Login></Login>
+      },
+      {
+        path: 'signup',
+        element:<Signup></Signup>
       }
     ],
   },

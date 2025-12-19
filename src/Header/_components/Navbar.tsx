@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router';
+import { NavLink, useNavigate } from 'react-router';
 import { ChevronDown, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import english from "../../../public/images/home/uk.png";
@@ -27,7 +27,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const [selectedLang, setSelectedLang] = useState(languages[0]);
-
+  const navigate = useNavigate();
   // const toggleMenu = () => setIsOpen(!isOpen);
   const toggleLanguage = () => setLangOpen(!langOpen);
 
@@ -90,7 +90,9 @@ export default function Navbar() {
       font-medium
       transition-all
       duration-300
+      cursor-pointer
     "
+     onClick={() => navigate("/signup")}
   >
     Register
   </motion.button>
@@ -108,9 +110,11 @@ export default function Navbar() {
       font-medium
       transition-all
       duration-300
+      cursor-pointer
       hover:bg-primary
       hover:text-white
     "
+     onClick={() => navigate("/login")}
   >
     Log In
   </motion.button>
