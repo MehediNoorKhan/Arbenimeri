@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Upload } from "lucide-react";
 
 interface SignupFormValues {
   firstName: string;
@@ -46,7 +47,8 @@ const Signup: React.FC = () => {
 
   const onSubmit: SubmitHandler<SignupFormValues> = (values) => {
     console.log("Signup values:", values);
-    // Handle submission
+     navigate("/profileinfo");
+    
   };
 
   return (
@@ -71,7 +73,7 @@ const Signup: React.FC = () => {
                   <FormItem className="flex-1">
                     <FormLabel className="text-[14px] text-[#677079]">First Name</FormLabel>
                     <FormControl>
-                      <Input {...field} placeholder="First Name" className="placeholder-[#677079] bg-white p-[16px]" />
+                      <Input {...field} placeholder="Enter First Name" className="placeholder-[#677079] bg-white p-[16px]" />
                     </FormControl>
                   </FormItem>
                 )}
@@ -83,7 +85,7 @@ const Signup: React.FC = () => {
                   <FormItem className="flex-1">
                     <FormLabel className="text-[14px] text-[#677079]">Last Name</FormLabel>
                     <FormControl>
-                      <Input {...field} placeholder="Last Name" className="placeholder-[#677079] bg-white p-[16px]" />
+                      <Input {...field} placeholder="Enter Last Name" className="placeholder-[#677079] bg-white p-[16px]" />
                     </FormControl>
                   </FormItem>
                 )}
@@ -99,7 +101,7 @@ const Signup: React.FC = () => {
                   <FormItem className="flex-1">
                     <FormLabel className="text-[14px] text-[#677079]">Email Address</FormLabel>
                     <FormControl>
-                      <Input {...field} placeholder="Email Address" className="placeholder-[#677079] bg-white p-[16px]" />
+                      <Input {...field} placeholder="Enter Email Address" className="placeholder-[#677079] bg-white p-[16px]" />
                     </FormControl>
                   </FormItem>
                 )}
@@ -111,7 +113,7 @@ const Signup: React.FC = () => {
                   <FormItem className="flex-1">
                     <FormLabel className="text-[14px] text-[#677079]">Telephone Number</FormLabel>
                     <FormControl>
-                      <Input {...field} placeholder="Telephone Number" className="placeholder-[#677079] bg-white p-[16px]" />
+                      <Input {...field} placeholder="Enter Telephone Number" className="placeholder-[#677079] bg-white p-[16px]" />
                     </FormControl>
                   </FormItem>
                 )}
@@ -126,7 +128,7 @@ const Signup: React.FC = () => {
                 <FormItem>
                   <FormLabel className="text-[14px] text-[#677079]">Company Name</FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="Company Name" className="placeholder-[#677079] bg-white p-[16px]" />
+                    <Input {...field} placeholder="Enter Company Name" className="placeholder-[#677079] bg-white p-[16px]" />
                   </FormControl>
                 </FormItem>
               )}
@@ -141,7 +143,7 @@ const Signup: React.FC = () => {
                   <FormItem className="flex-1">
                     <FormLabel className="text-[14px] text-[#677079]">Street</FormLabel>
                     <FormControl>
-                      <Input {...field} placeholder="Street" className="placeholder-[#677079] bg-white p-[16px]" />
+                      <Input {...field} placeholder="Enter Street" className="placeholder-[#677079] bg-white p-[16px]" />
                     </FormControl>
                   </FormItem>
                 )}
@@ -153,7 +155,7 @@ const Signup: React.FC = () => {
                   <FormItem className="flex-1">
                     <FormLabel className="text-[14px] text-[#677079]">House Number</FormLabel>
                     <FormControl>
-                      <Input {...field} placeholder="House Number" className="placeholder-[#677079] bg-white p-[16px]" />
+                      <Input {...field} placeholder="Enter House Number" className="placeholder-[#677079] bg-white p-[16px]" />
                     </FormControl>
                   </FormItem>
                 )}
@@ -169,7 +171,7 @@ const Signup: React.FC = () => {
                   <FormItem className="flex-1">
                     <FormLabel className="text-[14px] text-[#677079]">Zip Code</FormLabel>
                     <FormControl>
-                      <Input {...field} placeholder="Zip Code" className="placeholder-[#677079] bg-white p-[16px]" />
+                      <Input {...field} placeholder="Enter Zip Code" className="placeholder-[#677079] bg-white p-[16px]" />
                     </FormControl>
                   </FormItem>
                 )}
@@ -181,7 +183,7 @@ const Signup: React.FC = () => {
                   <FormItem className="flex-1">
                     <FormLabel className="text-[14px] text-[#677079]">Location</FormLabel>
                     <FormControl>
-                      <Input {...field} placeholder="Location" className="placeholder-[#677079] bg-white p-[16px]" />
+                      <Input {...field} placeholder="Enter Location" className="placeholder-[#677079] bg-white p-[16px]" />
                     </FormControl>
                   </FormItem>
                 )}
@@ -189,23 +191,34 @@ const Signup: React.FC = () => {
             </div>
 
             {/* Insurance Policy File Upload */}
-          <FormField
+  <FormField
   control={control}
   name="insurancePolicy"
   render={({ field: { onChange, onBlur, name, ref } }) => (
     <FormItem>
       <FormLabel className="text-[14px] text-[#677079]">Insurance Policy</FormLabel>
       <FormControl>
-        <input
-          type="file"
-          accept=".pdf"
-          onChange={(e) => onChange(e.target.files)}
-          onBlur={onBlur}
-          name={name}
-          ref={ref}
-          placeholder="Upload Folder"
-          className="placeholder-[#677079] p-4 h-[70px] w-full border rounded-md bg-white"
-        />
+        <div className="relative">
+          {/* Hidden file input */}
+          <input
+            type="file"
+            accept=".pdf"
+            id="insurancePolicy"
+            className="hidden"
+            onChange={(e) => onChange(e.target.files)}
+            onBlur={onBlur}
+            name={name}
+            ref={ref}
+          />
+          {/* Custom upload button */}
+          <label
+            htmlFor="insurancePolicy"
+            className="flex justify-center items-center gap-2 h-[70px] w-full bg-white border rounded-md cursor-pointer hover:bg-gray-100"
+          >
+            <Upload className="text-[#399385]" size={24} />
+            <span className="text-[#677079] text-[14px] text-center">Upload File (PDF)</span>
+          </label>
+        </div>
       </FormControl>
     </FormItem>
   )}
@@ -216,14 +229,14 @@ const Signup: React.FC = () => {
             <div className="flex justify-center gap-4 mt-6">
               <Button
                 type="button"
-                className="bg-[#399385] text-white px-[53px] py-[16px] rounded-full"
+                className="bg-[#399385] text-white px-[53px] py-[16px] rounded-full cursor-pointer"
                 onClick={() => navigate(-1)}
               >
                 Back
               </Button>
               <Button
                 type="submit"
-                className="bg-[#399385] text-white px-[53px] py-[16px] rounded-full"
+                className="bg-[#399385] text-white px-[53px] py-[16px] rounded-full cursor-pointer"
               >
                 Next
               </Button>
