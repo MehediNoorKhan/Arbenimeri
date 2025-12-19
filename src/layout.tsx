@@ -10,7 +10,7 @@ export default function RootLayout() {
             <Header />
           </div>
 
-          <main className="mt-4">
+          <main>
             <Outlet></Outlet>
           </main>
         </div>
