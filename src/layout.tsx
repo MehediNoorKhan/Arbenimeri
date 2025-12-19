@@ -1,7 +1,7 @@
 import Header from '@/Header/Index';
 import { Outlet } from 'react-router';
 
-export default function HomeLayout() {
+export default function RootLayout() {
   return (
     <>
       <main className="font-poppins">

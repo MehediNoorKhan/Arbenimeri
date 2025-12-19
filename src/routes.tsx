@@ -1,16 +1,17 @@
 import { createBrowserRouter } from 'react-router';
 
 import Home from './pages/Home';
-import HomeLayout from './pages/Home/layout';
 import Services from './pages/Services';
 import ContactUs from './pages/ContactUs';
 import FAQ from './pages/FAQ';
 import Blogs from './pages/Blogs';
+import RootLayout from './layout';
+import Login from './pages/Auth/_components/Login';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <HomeLayout></HomeLayout>,
+    element:<RootLayout></RootLayout> ,
     children: [
       {
         index: true,
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
         path: 'blogs',
         element: <Blogs></Blogs>,
       },
+      {
+        path:'login',
+        element:<Login></Login>
+      }
     ],
   },
 ]);
