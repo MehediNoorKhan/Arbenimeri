@@ -6,22 +6,22 @@ export const StepFrom2 = () => (
       <input
         type="text"
         placeholder="Enter Street"
-        className="border p-2 sm:p-3 rounded-md w-full text-sm sm:text-base"
+        className="border p-2 sm:p-3 rounded-md w-full text-sm sm:text-base bg-white" 
       />
       <input
         type="text"
         placeholder="Enter House Number"
-        className="border p-2 sm:p-3 rounded-md w-full text-sm sm:text-base"
+        className="border p-2 sm:p-3 rounded-md w-full text-sm sm:text-base bg-white"
       />
       <input
         type="text"
         placeholder="Enter ZIP code"
-        className="border p-2 sm:p-3 rounded-md w-full text-sm sm:text-base"
+        className="border p-2 sm:p-3 rounded-md w-full text-sm sm:text-base bg-white"
       />
       <input
         type="text"
         placeholder="Enter Location"
-        className="border p-2 sm:p-3 rounded-md w-full text-sm sm:text-base"
+        className="border p-2 sm:p-3 rounded-md w-full text-sm sm:text-base bg-white"
       />
     </div>
   </div>

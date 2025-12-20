@@ -1,5 +1,3 @@
-
-
 import React from "react";
 
 interface StepLayoutProps {
@@ -7,6 +5,7 @@ interface StepLayoutProps {
   onBack: () => void;
   onNext: () => void;
   children: React.ReactNode;
+  isLastStep?: boolean; // New prop to determine if it's the last step
 }
 
 export const StepLayout: React.FC<StepLayoutProps> = ({
@@ -14,12 +13,15 @@ export const StepLayout: React.FC<StepLayoutProps> = ({
   onBack,
   onNext,
   children,
+  isLastStep = false,
 }) => {
   return (
-    <div className="w-full max-w-[1100px] bg-white border rounded-xl p-4 sm:p-6 md:p-8 flex flex-col gap-4 shadow-xl">
+    <div className="w-full max-w-[1100px] bg-[#EBF4F3] border rounded-xl p-4 sm:p-6 md:p-8 flex flex-col gap-4 shadow-xl">
       {/* Title */}
-      <h2 className="text-center font-medium text-[#399385] 
-                     text-[28px] sm:text-[32px] md:text-[36px] lg:text-[44px] xl:text-[52px] 2xl:text-[60px]">
+      <h2
+        className="text-center font-medium text-[#399385] 
+                   text-[28px] sm:text-[32px] md:text-[36px] lg:text-[44px] xl:text-[52px] 2xl:text-[60px]"
+      >
         {title}
       </h2>
 
@@ -38,7 +40,7 @@ export const StepLayout: React.FC<StepLayoutProps> = ({
           className="bg-[#399385] text-white px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 lg:px-10 lg:py-5 rounded-full transition-all hover:brightness-110 cursor-pointer"
           onClick={onNext}
         >
-          Further
+          {isLastStep ? "Submit" : "Further"}
         </button>
       </div>
     </div>

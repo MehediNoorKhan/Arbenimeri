@@ -1,10 +1,16 @@
-
-
-import { useState} from "react";
+import { useState } from "react";
 import { StepLayout } from "./_components/StepLayout";
 import { MovingStep, type MovingStepType } from "../../types/MovingStep";
 import { StepFrom1 } from "./_components/steps/StepFrom1";
 import { StepFrom2 } from "./_components/steps/StepFrom2";
+import { StepFrom3 } from "./_components/steps/StepFrom3";
+import { StepFrom4 } from "./_components/steps/StepFrom4";
+import { StepFrom5 } from "./_components/steps/StepFrom5";
+import { StepFrom6 } from "./_components/steps/StepFrom6";
+import { StepFrom7 } from "./_components/steps/StepFrom7";
+import { StepFrom8 } from "./_components/steps/StepFrom8";
+import { StepFrom9 } from "./_components/steps/StepFrom9";
+import { StepFrom10 } from "./_components/steps/StepFrom10";
 import AnimatedTitle from "./AnimatedTitle";
 
 const MovingAndCleaning = () => {
@@ -13,13 +19,33 @@ const MovingAndCleaning = () => {
   const [currentSubIndex, setCurrentSubIndex] = useState(0);
 
   const steps: Record<MovingStepType, React.ReactNode[]> = {
-    [MovingStep.FROM]: [<StepFrom1 key="from1" />, <StepFrom2 key="from2" />],
-    [MovingStep.AFTER]: [],
-    [MovingStep.CLEANING]: [],
-    [MovingStep.CONTACT]: [],
+    [MovingStep.FROM]: [
+      <StepFrom1 key="from1" />,
+      <StepFrom2 key="from2" />,
+      <StepFrom3 key="from3" />,
+      <StepFrom4 key="from4" />,
+      <StepFrom5 key="from5" />,
+      <StepFrom6 key="from6" />,
+      <StepFrom7 key="from7" />,
+      <StepFrom8 key="from8" />,
+    ],
+    [MovingStep.AFTER]: [
+      <StepFrom1 key="from1" />,
+      <StepFrom2 key="from2" />,
+      <StepFrom5 key="from5" />,
+      <StepFrom6 key="from6" />,
+      <StepFrom7 key="from7" />,
+    ],
+    [MovingStep.CLEANING]: [<StepFrom9 key="from9" />],
+    [MovingStep.CONTACT]: [<StepFrom10 key="from10" />],
   };
 
   const currentSubComponent = steps[currentStep][currentSubIndex];
+
+  // Determine if this is the last step
+  const isLastStep =
+    currentStep === MovingStep.CONTACT &&
+    currentSubIndex === steps[MovingStep.CONTACT].length - 1;
 
   const handleNext = () => {
     if (currentSubIndex < steps[currentStep].length - 1) {
@@ -39,25 +65,45 @@ const MovingAndCleaning = () => {
           setCurrentSubIndex(0);
           break;
         case MovingStep.CONTACT:
+          // Last step reached, submit logic can be added here
+          console.log("Submit form or handle final action");
           break;
       }
     }
   };
 
   const handleBack = () => {
-    if (currentSubIndex > 0) setCurrentSubIndex(currentSubIndex - 1);
+    if (currentSubIndex > 0) {
+      setCurrentSubIndex(currentSubIndex - 1);
+      return;
+    }
+    switch (currentStep) {
+      case MovingStep.AFTER:
+        setCurrentStep(MovingStep.FROM);
+        setCurrentSubIndex(steps[MovingStep.FROM].length - 1);
+        break;
+      case MovingStep.CLEANING:
+        setCurrentStep(MovingStep.AFTER);
+        setCurrentSubIndex(steps[MovingStep.AFTER].length - 1);
+        break;
+      case MovingStep.CONTACT:
+        setCurrentStep(MovingStep.CLEANING);
+        setCurrentSubIndex(steps[MovingStep.CLEANING].length - 1);
+        break;
+      default:
+        break;
+    }
   };
 
   return (
-    <div className="min-h-screen bg-[#EBF4F3] flex flex-col items-center py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 2xl:py-32 space-y-16 sm:space-y-20 md:space-y-24 lg:space-y-28 xl:space-y-32 2xl:space-y-36 px-4">
-      
+    <div className="min-h-screen bg-white flex flex-col items-center py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 2xl:py-32 space-y-16 sm:space-y-20 md:space-y-24 lg:space-y-28 xl:space-y-32 2xl:space-y-36 px-4">
       {/* Animated Title */}
       <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-[64px] font-bold text-center flex flex-wrap justify-center gap-[2px]">
         <AnimatedTitle />
       </h1>
 
   {/* Processing Steps Card */}
-  <div className="w-full max-w-[1100px] bg-white border rounded-xl p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 2xl:p-14 flex flex-col items-center gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-12 shadow-xl">
+  <div className="w-full max-w-[1100px] bg-[#EBF4F3] border rounded-xl p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 2xl:p-14 flex flex-col items-center gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-12 shadow-xl">
 
     {/* Our Services Label */}
     <div className="flex justify-start sm:justify-center items-center gap-1 sm:gap-2 w-full sm:w-1/2 md:w-1/3">
@@ -86,7 +132,9 @@ const MovingAndCleaning = () => {
       {["1", "2", "3", "4"].map((num, index) => {
         const isActive =
           (currentStep === MovingStep.FROM && index === 0) ||
-          (currentStep === MovingStep.AFTER && index === 1);
+          (currentStep === MovingStep.AFTER && index === 1) || 
+          (currentStep === MovingStep.CLEANING && index === 2) ||
+          (currentStep === MovingStep.CONTACT && index === 3);
         return (
           <div key={num} className="flex flex-col items-center flex-1 min-w-[60px]">
             <div
@@ -108,13 +156,14 @@ const MovingAndCleaning = () => {
   </div>
 
   {/* Dynamic Step Card */}
-  <StepLayout
-    title={currentStep.charAt(0).toUpperCase() + currentStep.slice(1)}
-    onBack={handleBack}
-    onNext={handleNext}
-  >
-    {currentSubComponent}
-  </StepLayout>
+   <StepLayout
+        title={currentStep.charAt(0).toUpperCase() + currentStep.slice(1)}
+        onBack={handleBack}
+        onNext={handleNext}
+        isLastStep={isLastStep} // Pass isLastStep prop
+      >
+        {currentSubComponent}
+      </StepLayout>
 </div>
 
   );
