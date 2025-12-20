@@ -24,18 +24,12 @@ export const StepFrom8 = () => {
     }));
   };
 
-  const selectedValues = Object.keys(selectedOptions).filter(
-    (key) => selectedOptions[key]
-  );
-
   return (
     <div className="w-full flex flex-col gap-4">
-      {/* Title */}
       <h3 className="text-[24px] font-medium text-[#34495e]">
         Other Info:
       </h3>
 
-      {/* Checkbox Options */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {options.map((option) => (
           <label
@@ -55,11 +49,6 @@ export const StepFrom8 = () => {
           </label>
         ))}
       </div>
-
-      {/* Optional: Debug / Preview */}
-      {/* <pre className="text-sm text-gray-600">
-        {JSON.stringify(selectedValues, null, 2)}
-      </pre> */}
     </div>
   );
 };
