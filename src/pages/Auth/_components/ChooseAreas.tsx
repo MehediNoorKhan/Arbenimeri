@@ -43,7 +43,7 @@ const ChooseAreas: React.FC = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
-      <div className="w-full max-w-[360px] sm:max-w-[500px] md:max-w-[700px] lg:max-w-[850px] xl:max-w-[950px] 2xl:max-w-[1100px] p-6 sm:p-8 md:p-10 lg:p-12 bg-white shadow-md rounded-md">
+      <div className="w-full max-w-[360px] sm:max-w-[500px] md:max-w-[700px] lg:max-w-[850px] xl:max-w-[950px] 2xl:max-w-[1100px] p-6 sm:p-8 md:p-10 lg:p-12 bg-[#EBF4F3] shadow-md rounded-md">
         {/* Title */}
         <h2 className="text-[28px] sm:text-[30px] md:text-[32px] lg:text-[36px] xl:text-[40px] 2xl:text-[42px] font-semibold mb-3 text-center">
           Become a Partner
