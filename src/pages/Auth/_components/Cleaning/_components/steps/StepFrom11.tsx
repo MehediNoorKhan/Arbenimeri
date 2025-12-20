@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 
-export const StepFrom7 = () => {
+export const StepFrom11 = () => {
   const [size, setSize] = useState<string | null>(null);
 
   return (
@@ -14,16 +14,12 @@ export const StepFrom7 = () => {
     placeholder="Floor"
     className="w-full sm:w-1/2 bg-white border rounded-md placeholder:text-[#333333] text-[16px] py-3"
   />
-  <Input
-    placeholder="Room"
-    className="w-full sm:w-1/2 bg-white border rounded-md placeholder:text-[#333333] text-[16px] py-3"
-  />
 </div>
 
 
       {/* Size selection title */}
       <h3 className="text-[24px] font-medium text-[#34495e]">
-        Area:
+        Apartment/House Size:
       </h3>
 
       {/* Radio group for size */}

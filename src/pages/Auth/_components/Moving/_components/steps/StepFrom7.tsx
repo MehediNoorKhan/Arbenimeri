@@ -23,7 +23,7 @@ export const StepFrom7 = () => {
 
       {/* Size selection title */}
       <h3 className="text-[24px] font-medium text-[#34495e]">
-        Apartment/House Size:
+        Area:
       </h3>
 
       {/* Radio group for size */}

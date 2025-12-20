@@ -13,7 +13,7 @@ const WorkCard: React.FC<CardProps> = ({ item }) => {
         bg-primary
         rounded-3xl
         w-full
-        max-w-[400px]
+        max-w-[400px] max-h-[350px] mx-auto
         aspect-[3/4]
         p-5 sm:p-6
         flex flex-col items-center text-center

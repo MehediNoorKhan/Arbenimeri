@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { StepLayout } from "./_components/StepLayout";
-import { MovingStep, type MovingStepType } from "../../types/MovingAndCleaningStep";
+import { CleaningStep, type CleaningStepType } from "../../../../types/CleaningStep";
 import { StepFrom1 } from "./_components/steps/StepFrom1";
 import { StepFrom2 } from "./_components/steps/StepFrom2";
 import { StepFrom3 } from "./_components/steps/StepFrom3";
@@ -9,66 +9,42 @@ import { StepFrom5 } from "./_components/steps/StepFrom5";
 import { StepFrom6 } from "./_components/steps/StepFrom6";
 import { StepFrom7 } from "./_components/steps/StepFrom7";
 import { StepFrom8 } from "./_components/steps/StepFrom8";
-import { StepFrom9 } from "./_components/steps/StepFrom9";
-import { StepFrom10 } from "./_components/steps/StepFrom10";
 import AnimatedTitle from "./AnimatedTitle";
-import { StepFrom11 } from "./_components/steps/StepFrom11";
-
-const MovingAndCleaning = () => {
-  // Wizard state
-  const [currentStep, setCurrentStep] = useState<MovingStepType>(MovingStep.FROM);
+import { StepFrom12 } from "./_components/steps/StepFrom12";
+import { StepFrom13 } from "./_components/steps/StepFrom13";
+const Cleaning = () => {
+  const [currentStep, setCurrentStep] = useState<CleaningStepType>(CleaningStep.CLEANING);
   const [currentSubIndex, setCurrentSubIndex] = useState(0);
 
-  const steps: Record<MovingStepType, React.ReactNode[]> = {
-    [MovingStep.FROM]: [
-      <StepFrom1 key="from1" />,
-      <StepFrom2 key="from2" />,
-      <StepFrom3 key="from3" />,
-      <StepFrom4 key="from4" />,
-      <StepFrom5 key="from5" />,
-      <StepFrom6 key="from6" />,
-      <StepFrom7 key="from7" />,
-      <StepFrom8 key="from8" />,
-    ],
-    [MovingStep.AFTER]: [
-      <StepFrom1 key="from1" />,
-      <StepFrom2 key="from2" />,
-      <StepFrom5 key="from5" />,
-      <StepFrom6 key="from6" />,
-      <StepFrom11 key="from11" />,
-    ],
-    [MovingStep.CLEANING]: [<StepFrom9 key="from9" />],
-    [MovingStep.CONTACT]: [<StepFrom10 key="from10" />],
+  const steps: Record<CleaningStepType, React.ReactNode[]> = {
+    [CleaningStep.CLEANING]: [<StepFrom12 key="from12" />,<StepFrom1 key="from1" />, <StepFrom2 key="from2" />, <StepFrom3 key="from3" />, <StepFrom4 key="from4" />, <StepFrom5 key="from5" />, <StepFrom6 key="from6" />, <StepFrom7 key="from7" />, <StepFrom8 key="from8" />, <StepFrom13 key="from13"/>],
+    [CleaningStep.NUMBER]: [],
+    [CleaningStep.CONTACT]: [],
   };
 
   const currentSubComponent = steps[currentStep][currentSubIndex];
 
-  // Determine if this is the last step
   const isLastStep =
-    currentStep === MovingStep.CONTACT &&
-    currentSubIndex === steps[MovingStep.CONTACT].length - 1;
+    currentStep === CleaningStep.CONTACT &&
+    currentSubIndex === steps[CleaningStep.CONTACT].length - 1;
 
-    const showBack = !(currentStep === MovingStep.FROM && currentSubIndex === 0);
+  // Show Back button only if not first sub-step
+  const showBack = !(currentStep === CleaningStep.CLEANING && currentSubIndex === 0);
 
   const handleNext = () => {
     if (currentSubIndex < steps[currentStep].length - 1) {
       setCurrentSubIndex(currentSubIndex + 1);
     } else {
       switch (currentStep) {
-        case MovingStep.FROM:
-          setCurrentStep(MovingStep.AFTER);
+        case CleaningStep.CLEANING:
+          setCurrentStep(CleaningStep.NUMBER);
           setCurrentSubIndex(0);
           break;
-        case MovingStep.AFTER:
-          setCurrentStep(MovingStep.CLEANING);
+        case CleaningStep.NUMBER:
+          setCurrentStep(CleaningStep.CONTACT);
           setCurrentSubIndex(0);
           break;
-        case MovingStep.CLEANING:
-          setCurrentStep(MovingStep.CONTACT);
-          setCurrentSubIndex(0);
-          break;
-        case MovingStep.CONTACT:
-          // Last step reached, submit logic can be added here
+        case CleaningStep.CONTACT:
           console.log("Submit form or handle final action");
           break;
       }
@@ -81,17 +57,13 @@ const MovingAndCleaning = () => {
       return;
     }
     switch (currentStep) {
-      case MovingStep.AFTER:
-        setCurrentStep(MovingStep.FROM);
-        setCurrentSubIndex(steps[MovingStep.FROM].length - 1);
+      case CleaningStep.NUMBER:
+        setCurrentStep(CleaningStep.CLEANING);
+        setCurrentSubIndex(steps[CleaningStep.CLEANING].length - 1);
         break;
-      case MovingStep.CLEANING:
-        setCurrentStep(MovingStep.AFTER);
-        setCurrentSubIndex(steps[MovingStep.AFTER].length - 1);
-        break;
-      case MovingStep.CONTACT:
-        setCurrentStep(MovingStep.CLEANING);
-        setCurrentSubIndex(steps[MovingStep.CLEANING].length - 1);
+      case CleaningStep.CONTACT:
+        setCurrentStep(CleaningStep.NUMBER);
+        setCurrentSubIndex(steps[CleaningStep.NUMBER].length - 1);
         break;
       default:
         break;
@@ -121,7 +93,7 @@ const MovingAndCleaning = () => {
         </defs>
       </svg>
       <span className="uppercase text-[#399385] font-semibold text-xs sm:text-sm md:text-base lg:text-base xl:text-lg 2xl:text-lg">
-        MOVING
+        Cleaning
       </span>
     </div>
 
@@ -132,12 +104,11 @@ const MovingAndCleaning = () => {
 
     {/* Circles Row */}
     <div className="flex flex-wrap justify-between w-full gap-4 sm:gap-6 md:gap-8 lg:gap-10 max-w-full">
-      {["1", "2", "3", "4"].map((num, index) => {
+      {["1", "2", "3"].map((num, index) => {
         const isActive =
-          (currentStep === MovingStep.FROM && index === 0) ||
-          (currentStep === MovingStep.AFTER && index === 1) || 
-          (currentStep === MovingStep.CLEANING && index === 2) ||
-          (currentStep === MovingStep.CONTACT && index === 3);
+          (currentStep === CleaningStep.CLEANING && index === 0) ||
+          (currentStep === CleaningStep.NUMBER && index === 1) || 
+          (currentStep === CleaningStep.CONTACT && index === 2);
         return (
           <div key={num} className="flex flex-col items-center flex-1 min-w-[60px]">
             <div
@@ -150,7 +121,7 @@ const MovingAndCleaning = () => {
               {num}
             </div>
             <span className="mt-2 text-xs sm:text-sm md:text-base lg:text-base xl:text-lg text-center text-[#399385]">
-              {["From", "After", "Cleaning", "Contact"][index]}
+              {["Cleaning", "Number", "Contact"][index]}
             </span>
           </div>
         );
@@ -158,19 +129,17 @@ const MovingAndCleaning = () => {
     </div>
   </div>
 
-  {/* Dynamic Step Card */}
-   <StepLayout
+  <StepLayout
         title={currentStep.charAt(0).toUpperCase() + currentStep.slice(1)}
         onBack={handleBack}
         onNext={handleNext}
-        isLastStep={isLastStep} // Pass isLastStep prop
-        showBack={showBack}
+        isLastStep={isLastStep}
+        showBack={showBack} // <-- showBack passed here
       >
         {currentSubComponent}
       </StepLayout>
-</div>
-
+    </div>
   );
 };
 
-export default MovingAndCleaning;
+export default Cleaning;

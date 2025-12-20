@@ -5,7 +5,8 @@ interface StepLayoutProps {
   onBack: () => void;
   onNext: () => void;
   children: React.ReactNode;
-  isLastStep?: boolean; // New prop to determine if it's the last step
+  isLastStep?: boolean; // Determines if it's the last step
+  showBack?: boolean;   // Determines if back button should be shown
 }
 
 export const StepLayout: React.FC<StepLayoutProps> = ({
@@ -14,9 +15,11 @@ export const StepLayout: React.FC<StepLayoutProps> = ({
   onNext,
   children,
   isLastStep = false,
+  showBack = true,
 }) => {
   return (
     <div className="w-full max-w-[1100px] bg-[#EBF4F3] border rounded-xl p-4 sm:p-6 md:p-8 flex flex-col gap-4 shadow-xl">
+      
       {/* Title */}
       <h2
         className="text-center font-medium text-[#399385] 
@@ -30,12 +33,14 @@ export const StepLayout: React.FC<StepLayoutProps> = ({
 
       {/* Navigation Buttons */}
       <div className="flex flex-col sm:flex-row justify-center gap-4 mt-4">
-        <button
-          className="bg-[#399385] text-white px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 lg:px-10 lg:py-5 rounded-full transition-all hover:brightness-110 cursor-pointer"
-          onClick={onBack}
-        >
-          Back
-        </button>
+        {showBack && (
+          <button
+            className="bg-[#399385] text-white px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 lg:px-10 lg:py-5 rounded-full transition-all hover:brightness-110 cursor-pointer"
+            onClick={onBack}
+          >
+            Back
+          </button>
+        )}
         <button
           className="bg-[#399385] text-white px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 lg:px-10 lg:py-5 rounded-full transition-all hover:brightness-110 cursor-pointer"
           onClick={onNext}
