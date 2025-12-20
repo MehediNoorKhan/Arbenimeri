@@ -1,6 +1,7 @@
 export const MovingStep = {
   FROM: "from",
   AFTER: "after",
+  CLEANING: "cleaning",
   CONTACT: "contact",
 } as const;
 
