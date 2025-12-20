@@ -1,3 +1,5 @@
+
+
 import { useState, useEffect } from "react";
 
 const AnimatedTitle = () => {
@@ -17,13 +19,17 @@ const AnimatedTitle = () => {
   }, []);
 
   return (
-    <h1 className="flex flex-wrap justify-center font-bold text-[40px] lg:text-[50px] xl:text-[60px] text-center">
+    <h1 className="flex flex-wrap justify-center font-bold text-center">
       {words.map((word, wordIdx) => {
         const isLast = wordIdx === words.length - 1;
+
+        // Responsive text sizes
+        const textSizeClasses = "text-[24px] sm:text-[28px] md:text-[32px] lg:text-[40px] xl:text-[50px] 2xl:text-[60px]";
+
         return (
           <span
             key={wordIdx}
-            className="flex flex-wrap gap-[4px] mr-6" // increased gap and margin between words
+            className={`flex flex-wrap gap-[2px] sm:gap-[3px] md:gap-[4px] mr-3 sm:mr-4 md:mr-5 lg:mr-6 ${textSizeClasses}`}
             style={{ color: isLast ? "#399385" : "#34495e" }}
           >
             {word.split("").map((char, charIdx) => {

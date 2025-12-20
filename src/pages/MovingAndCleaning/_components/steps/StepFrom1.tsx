@@ -1,4 +1,3 @@
-import * as React from "react";
 import {
   Select,
   SelectContent,
@@ -11,15 +10,18 @@ import {
 
 export const StepFrom1 = () => {
   return (
-    <div className="w-1/2">
-      <label className="block text-[#677079] text-sm mb-2">Select Area</label>
+    <div className="w-full sm:w-3/4 md:w-2/3 lg:w-1/2">
+      {/* Label */}
+      <label className="block text-[#677079] text-sm sm:text-base mb-2">Select Area</label>
+
+      {/* Select Dropdown */}
       <Select>
-        <SelectTrigger className="w-full border p-2 rounded">
+        <SelectTrigger className="w-full border p-2 sm:p-3 rounded-md text-sm sm:text-base">
           <SelectValue placeholder="Select an area" />
         </SelectTrigger>
-        <SelectContent className="max-h-48 overflow-y-auto">
+        <SelectContent className="max-h-48 sm:max-h-56 overflow-y-auto">
           <SelectGroup>
-            <SelectLabel>Switzerland</SelectLabel>
+            <SelectLabel className="text-sm sm:text-base">Switzerland</SelectLabel>
             <SelectItem value="Appenzell Innerrhoden">Appenzell Innerrhoden</SelectItem>
             <SelectItem value="Basel Stadt">Basel Stadt</SelectItem>
             <SelectItem value="Freiburg">Freiburg</SelectItem>
