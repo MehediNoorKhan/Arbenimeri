@@ -1,5 +1,7 @@
 import Header from '@/Header/Index';
 import { Outlet } from 'react-router';
+import Footer from './Footer/_components/Footer';
+
 
 export default function RootLayout() {
   return (
@@ -13,6 +15,9 @@ export default function RootLayout() {
           <main>
             <Outlet></Outlet>
           </main>
+          <div>
+         <Footer/>
+          </div>
         </div>
       </main>
     </>
