@@ -24,12 +24,12 @@ export const StepFrom14 = () => {
             <SelectItem value="2nd">2nd</SelectItem>
             <SelectItem value="3rd">3rd</SelectItem>
             <SelectItem value="4th">4th</SelectItem>
-            <SelectItem value="5-7">5–7</SelectItem>
-            <SelectItem value="8-10">8–10</SelectItem>
-            <SelectItem value="11-15">11–15</SelectItem>
-            <SelectItem value="16-20">16–20</SelectItem>
-            <SelectItem value="21-30">21–30</SelectItem>
-            <SelectItem value="31-50">31–50</SelectItem>
+            <SelectItem value="5-7">5th–7th</SelectItem>
+            <SelectItem value="8-10">8th–10th</SelectItem>
+            <SelectItem value="11-15">11th–15th</SelectItem>
+            <SelectItem value="16-20">16th–20th</SelectItem>
+            <SelectItem value="21-30">21st–30th</SelectItem>
+            <SelectItem value="31-50">31st–50th</SelectItem>
             <SelectItem value="more-50">More than 50</SelectItem>
           </SelectContent>
         </Select>
