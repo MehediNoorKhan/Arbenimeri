@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { StepLayout } from "./_components/StepLayout";
-import { MovingStep, type MovingStepType } from "../../../../types/MovingStep";
+import { MovingStep, type MovingStepType } from "../../types/MovingStep";
 import { StepFrom1 } from "./_components/steps/StepFrom1";
 import { StepFrom2 } from "./_components/steps/StepFrom2";
 import { StepFrom3 } from "./_components/steps/StepFrom3";

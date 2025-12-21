@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { StepLayout } from "./_components/StepLayout";
-import { CleaningStep, type CleaningStepType } from "../../../../types/CleaningStep";
+import { CleaningStep, type CleaningStepType } from "../../types/CleaningStep";
 import { StepFrom1 } from "./_components/steps/StepFrom1";
 import { StepFrom2 } from "./_components/steps/StepFrom2";
 import { StepFrom3 } from "./_components/steps/StepFrom3";
@@ -12,13 +12,14 @@ import { StepFrom8 } from "./_components/steps/StepFrom8";
 import AnimatedTitle from "./AnimatedTitle";
 import { StepFrom12 } from "./_components/steps/StepFrom12";
 import { StepFrom13 } from "./_components/steps/StepFrom13";
+import { StepFrom14 } from "./_components/steps/StepFrom14";
 const Cleaning = () => {
   const [currentStep, setCurrentStep] = useState<CleaningStepType>(CleaningStep.CLEANING);
   const [currentSubIndex, setCurrentSubIndex] = useState(0);
 
   const steps: Record<CleaningStepType, React.ReactNode[]> = {
     [CleaningStep.CLEANING]: [<StepFrom12 key="from12" />,<StepFrom1 key="from1" />, <StepFrom2 key="from2" />, <StepFrom3 key="from3" />, <StepFrom4 key="from4" />, <StepFrom5 key="from5" />, <StepFrom6 key="from6" />, <StepFrom7 key="from7" />, <StepFrom8 key="from8" />, <StepFrom13 key="from13"/>],
-    [CleaningStep.NUMBER]: [],
+    [CleaningStep.NUMBER]: [<StepFrom14 key="from14"/>,],
     [CleaningStep.CONTACT]: [],
   };
 

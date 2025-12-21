@@ -11,8 +11,8 @@ import Signup from "./pages/Auth/_components/Signup";
 import ProfileInfo from "./pages/Auth/_components/ProfileInfo";
 import ChooseAreas from "./pages/Auth/_components/ChooseAreas";
 import MovingAndCleaning from "./pages/MovingAndCleaning/MovingAndCleaning";
-import Moving from "./pages/Auth/_components/Moving/Moving";
-import Cleaning from "./pages/Auth/_components/Cleaning/Cleaning";
+import Moving from "./pages/Moving/Moving";
+import Cleaning from "./pages/Cleaning/Cleaning";
 
 const router = createBrowserRouter([
   {
