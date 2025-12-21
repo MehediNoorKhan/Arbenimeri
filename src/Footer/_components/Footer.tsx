@@ -9,7 +9,7 @@ import instagram from "../../../public/images/All/instagramicon.png";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#eef6f5] w-full">
+    <footer className="bg-[#EBF4F3] w-full">
       <div className="px-4 md:px-12 lg:px-20 py-8 lg:py-20 flex flex-col gap-12">
         {/* Top Section */}
         <div className="flex flex-col md:flex-row gap-12">
