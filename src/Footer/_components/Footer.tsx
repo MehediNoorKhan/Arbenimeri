@@ -111,34 +111,73 @@ export default function Footer() {
           </div>
 
           {/* Subscribe */}
-          <div className="flex flex-col gap-4 md:w-[35%]">
-            <h4 className="font-semibold text-[#000000]">Subscribe</h4>
+        <div className="flex flex-col gap-4 w-full md:w-[35%]">
+  <h4 className="font-semibold text-[#000000]">Subscribe</h4>
 
-            <div className="flex gap-2">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 rounded-xl border border-[#cfdedb] bg-transparent text-[16px] xl:text-[18px] outline-none"
-              />
-              <button className="px-6 py-3 rounded-full bg-[#399385] text-white text-[16px] xl:text-[18px] font-medium hover:brightness-110 transition">
-                Subscribe
-              </button>
-            </div>
+  {/* Email + Button */}
+  <div className="flex flex-col sm:flex-row gap-3 w-full">
+    <input
+      type="email"
+      placeholder="Enter your email"
+      className="
+        w-full 
+        flex-1 
+        px-4 
+        py-3 
+        rounded-xl 
+        border 
+        border-[#cfdedb] 
+        bg-transparent 
+        text-[16px] xl:text-[18px] 
+        outline-none
+      "
+    />
 
-            {/* Social Icons */}
-            <div className="flex gap-3 mt-4">
-              {[linkedicon, twittericon, facebookicon, youtubeicon, instagram].map(
-                (icon, idx) => (
-                  <div
-                    key={idx}
-                    className="w-10 h-10 rounded-full border flex items-center justify-center hover:bg-[#399385] hover:border-[#399385] transition"
-                  >
-                    <img src={icon} alt="social" width={18} height={18} />
-                  </div>
-                )
-              )}
-            </div>
-          </div>
+    <button
+      className="
+        w-full 
+        sm:w-auto
+        px-6 
+        py-3 
+        rounded-full 
+        bg-[#399385] 
+        text-white 
+        text-[16px] xl:text-[18px] 
+        font-medium 
+        hover:brightness-110 
+        transition
+      "
+    >
+      Subscribe
+    </button>
+  </div>
+
+  {/* Social Icons */}
+  <div className="flex flex-wrap gap-3 mt-4">
+    {[linkedicon, twittericon, facebookicon, youtubeicon, instagram].map(
+      (icon, idx) => (
+        <a
+          key={idx}
+          href="#"
+          className="
+            w-10 h-10 
+            rounded-full 
+            border 
+            flex 
+            items-center 
+            justify-center 
+            hover:bg-[#399385] 
+            hover:border-[#399385] 
+            transition
+          "
+        >
+          <img src={icon} alt="social" width={18} height={18} />
+        </a>
+      )
+    )}
+  </div>
+</div>
+
         </div>
 
         {/* Bottom */}
